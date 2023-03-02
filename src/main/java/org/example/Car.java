@@ -1,5 +1,5 @@
 package org.example;
-
+import java.lang.Math;
 public class Car {
     // the mileage of the car in miles per gallon:
     private int mileage;
@@ -16,7 +16,18 @@ public class Car {
      * return - the amount of miles actually driven
      */
     public int drive(int miles) {
-        return -1;
+        int milesDriven = 0;
+        int gasNeeded = miles * mileage;
+
+        if (gasNeeded > gas) {
+            milesDriven = (int) (gas * mileage);
+            gas = 0;
+        } else {
+            milesDriven = miles;
+            gas -= miles / mileage;
+        }
+
+        return milesDriven;
     }
 
     /**
@@ -25,11 +36,10 @@ public class Car {
      * @param gallons the amount of gallons to fill
      */
     public void fill(int gallons) {
-
+        setGas(this.gas + gallons);
     }
 
-
-    public Car(int mileage, int gas) {
+    public Car(int mileage, double gas) {
         this.mileage = mileage;
         this.gas = gas;
     }

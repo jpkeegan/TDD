@@ -1,6 +1,7 @@
 package org.example;
 
-public class Math {
+import java.lang.Math;
+public class MathClass {
 
     /**
      * Return the Greatest Common Factor between the two parameters
@@ -9,7 +10,13 @@ public class Math {
      * @return - the greatest common factor between x and y
      */
     public int GCF(int x, int y) {
-        return -1;
+        int gcf = 1;
+        for(int i = 1; i <= x && i <=y; i++){
+            if(x % i ==0 & y % i==0){
+                gcf = i;
+            }
+        }
+        return gcf;
     }
 
     /**
@@ -19,7 +26,7 @@ public class Math {
      * @return the area of the rectangle
      */
     public int areaRectangle(int length, int width) {
-        return -1;
+        return length * width;
     }
 
     /**
@@ -29,7 +36,8 @@ public class Math {
      * @return - the area of the triangle
      */
     public double areaTriangle(int base, int height) {
-        return -1;
+
+        return (height*base)/2;
     }
 
     /**
@@ -38,7 +46,7 @@ public class Math {
      * @return - the area of the circle
      */
     public double areaCircle(int radius) {
-        return -1;
+        return Math.PI * Math.pow(radius, 2);
     }
 
     /**
@@ -47,7 +55,10 @@ public class Math {
      * @return - the factorial of number
      */
     public int factorial(int number) {
-        return -1;
+        int res = 1, i;
+        for (i = 2; i <= number; i++)
+            res *= i;
+        return res;
     }
 
 

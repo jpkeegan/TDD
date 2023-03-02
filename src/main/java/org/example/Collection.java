@@ -1,8 +1,7 @@
 package org.example;
 
-import java.util.List;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
+import java.lang.Math;
 
 public class Collection {
     /**
@@ -11,7 +10,7 @@ public class Collection {
      * @return the largest integer
      */
     public static int findMax(List<Integer> numbers) {
-        return -1;
+        return Collections.max(numbers);
     }
 
     /**
@@ -20,7 +19,7 @@ public class Collection {
      * @return the smallest integer
      */
     public static int findMin(List<Integer> numbers) {
-        return -1;
+        return Collections.min(numbers);
     }
 
     /**
@@ -29,7 +28,7 @@ public class Collection {
      * @param target - the threshold by which to remove integers
      */
     public static void removeLessThan(Set<Integer> numbers, int target) {
-
+        numbers.removeIf(x -> x < target);
     }
 
     /**
@@ -38,7 +37,7 @@ public class Collection {
      * @param target - the threshold by which to remove integers
      */
     public static void removeGreaterThan(Set<Integer> numbers, int target) {
-
+        numbers.removeIf(x -> x > target);
     }
 
     /**
@@ -48,6 +47,14 @@ public class Collection {
      * @param strings - the queue of strings to mutuate
      */
     public static void removeHalf(Queue<String> strings) {
-
+        int originalSize = strings.size();
+        int halfSize = (int) Math.ceil(originalSize / 2.0);
+        System.out.println(halfSize);
+        int removed = 0;
+        for(int i = 0; i < halfSize; i++){
+            strings.remove();
+            removed ++;
+        }
+        System.out.println(removed);
     }
 }
